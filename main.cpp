@@ -19,8 +19,11 @@ ant.update();
 std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 for(int i=10;i>0;i--){
 ant.position+=ant.leaf/i;
-if((ant.position.distance(ant.leaf)-1)<1) break;
+
 std::cout<<ant.position.distance(ant.leaf)<<std::endl;
+
+if((ant.position.distance(ant.leaf)-1)<1) break;
+//std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 }
 /*
 vector3d a=vector3d(2,5);
