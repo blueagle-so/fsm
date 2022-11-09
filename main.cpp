@@ -12,13 +12,15 @@ std::cout<<"leaf y = "<<ant.leaf.y<<std::endl;
 ant.update();
 ant.update();
 ant.update();
-	//ant->position->y+=ant->leaf->y;
+	//ant.position+=ant.leaf/10;
         //ant->position->x+=ant->leaf->x;
 	//std::cout<<"ant x= "<<ant->position->x<<" ant y= "<<ant->position->y<<std::endl;
 
 std::cout<<ant.position.distance(ant.leaf)<<std::endl;
-
-
+for(int i=10;i>=1;i--){
+ant.position+=ant.leaf/i;
+std::cout<<ant.position.distance(ant.leaf)<<std::endl;
+}
 /*
 vector3d a=vector3d(2,5);
     vector3d b=vector3d(3,7);
