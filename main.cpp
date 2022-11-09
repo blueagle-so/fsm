@@ -4,27 +4,31 @@
 //Leaf on (rand, rand)
 
 int main(){
-Ant* ant=new Ant(0,0);
-std::cout<<"Ant x = "<<ant->position->x<<std::endl;
-std::cout<<"Ant y = "<<ant->position->y<<std::endl;
-std::cout<<"leaf x = "<<ant->leaf->x<<std::endl;
-std::cout<<"leaf y = "<<ant->leaf->y<<std::endl;
-ant->update();
-ant->update();
-ant->update();
-	ant->position->y+=ant->leaf->y;
-        ant->position->x+=ant->leaf->x;
-	std::cout<<"ant x= "<<ant->position->x<<" ant y= "<<ant->position->y<<std::endl;
+Ant ant=Ant(0,0);
+std::cout<<"Ant x = "<<ant.position.x<<std::endl;
+std::cout<<"Ant y = "<<ant.position.y<<std::endl;
+std::cout<<"leaf x = "<<ant.leaf.x<<std::endl;
+std::cout<<"leaf y = "<<ant.leaf.y<<std::endl;
+ant.update();
+ant.update();
+ant.update();
+	//ant->position->y+=ant->leaf->y;
+        //ant->position->x+=ant->leaf->x;
+	//std::cout<<"ant x= "<<ant->position->x<<" ant y= "<<ant->position->y<<std::endl;
 
+std::cout<<ant.position.distance(ant.leaf)<<std::endl;
+
+
+/*
 vector3d a=vector3d(2,5);
     vector3d b=vector3d(3,7);
     vector3d c=a+b;
     c.disp();
-    f ff=c.distance(a);
+   f ff=c.distance(a);
     cout<<ff<<endl;
     //provide any operation.
 
-
+*/
 
 return 0;
 }

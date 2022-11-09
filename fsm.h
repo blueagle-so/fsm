@@ -8,7 +8,45 @@
 #include<assert.h>
 using namespace std;
 typedef float f;
+class vector3d
+{
+public:
+    f x,y,z;
+    vector3d()  //constructor
+    {
+        x=0;
+        y=0;
+        z=0;
+    }
 
+    vector3d(f x1,f y1,f z1=0)     //initializing object with values.
+    {
+        x=x1;
+        y=y1;
+        z=z1;
+    }
+    vector3d(const vector3d &vec);    //copy constructor
+    vector3d operator+(const vector3d &vec);    //addition
+    vector3d &operator+=(const vector3d &vec);  ////assigning new result to the vector
+    vector3d operator-(const vector3d &vec);    //substraction
+    vector3d &operator-=(const vector3d &vec);  //assigning new result to the vector
+    vector3d operator*(f value);    //multiplication
+    vector3d &operator*=(f value);  //assigning new result to the vector.
+    vector3d operator/(f value);    //division
+    vector3d &operator/=(f value);  //assigning new result to the vector
+    vector3d &operator=(const vector3d &vec);
+    f dot_product(const vector3d &vec); //scalar dot_product
+    vector3d cross_product(const vector3d &vec);    //cross_product
+    f magnitude();  //magnitude of the vector
+    vector3d normalization();   //nor,malized vector
+    f square(); //gives square of the vector
+
+    f distance(const vector3d &vec);    //gives distance between two vectors
+    f show_X(); //return x
+    f show_Y(); //return y
+    f show_Z(); //return z
+    void disp();    //display value of vectors
+};
 using Func = void (*)();
 using namespace std;
 class FSM{
@@ -37,24 +75,24 @@ class Point{
 };
 class Ant{
 	public:
-	Point *position;
-	Point *velocity;
-	Point *leaf;
-	static FSM* brain;
-	Ant(float posX, float posY)
+	vector3d position;
+	vector3d velocity;
+	vector3d leaf;
+	static FSM brain;
+	Ant(f posX, f posY)
 	{
-	position=new Point(posX, posY);
-	velocity=new Point(-1,-1);
+	position=vector3d(posX, posY);
+	velocity=vector3d(-1,-1);
 	std::srand(std::time(0));
-	leaf=new Point((std::rand() % 10 +1), (std::rand() % 10 +1));
-	brain = new FSM();
-	brain->setState(findLeaf);
+	leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
+	brain =FSM();
+	brain.setState(findLeaf);
 	}
 	static void findLeaf();
 	static void goHome();
 	static void runAway();
 	void update(){
-        brain->update();
+        brain.update();
         //moveBasedOnVelocity();
 	}
 
@@ -111,44 +149,4 @@ class _Ant {
    static void runAway();
 };
 
-
-class vector3d
-{
-public:
-    f x,y,z;
-    vector3d()  //constructor
-    {
-        x=0;
-        y=0;
-        z=0;
-    }
-
-    vector3d(f x1,f y1,f z1=0)     //initializing object with values.
-    {
-        x=x1;
-        y=y1;
-        z=z1;
-    }
-    vector3d(const vector3d &vec);    //copy constructor
-    vector3d operator+(const vector3d &vec);    //addition
-    vector3d &operator+=(const vector3d &vec);  ////assigning new result to the vector
-    vector3d operator-(const vector3d &vec);    //substraction
-    vector3d &operator-=(const vector3d &vec);  //assigning new result to the vector
-    vector3d operator*(f value);    //multiplication
-    vector3d &operator*=(f value);  //assigning new result to the vector.
-    vector3d operator/(f value);    //division
-    vector3d &operator/=(f value);  //assigning new result to the vector
-    vector3d &operator=(const vector3d &vec);
-    f dot_product(const vector3d &vec); //scalar dot_product
-    vector3d cross_product(const vector3d &vec);    //cross_product
-    f magnitude();  //magnitude of the vector
-    vector3d normalization();   //nor,malized vector
-    f square(); //gives square of the vector
-
-    f distance(const vector3d &vec);    //gives distance between two vectors
-    f show_X(); //return x
-    f show_Y(); //return y
-    f show_Z(); //return z
-    void disp();    //display value of vectors
-};
 

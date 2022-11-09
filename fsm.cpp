@@ -1,7 +1,7 @@
 #include "fsm.h"
 #include <iostream>
 using namespace std;
-FSM * Ant::brain;
+FSM Ant::brain;
 
 //Ant::Ant(int posX, int posY){
 	//position=position(posX, posY);
@@ -20,7 +20,7 @@ static void Ant::findLeaf(){
     //velocity = new Vector3D(Game.instance.leaf.x - position.x, Game.instance.leaf.y - position.y);
 
     //if (distance(Game.instance.leaf, this) <= 10)  
-brain->setState(goHome);
+brain.setState(goHome);
 
     //if (distance(Game.mouse, this) <= MOUSE_THREAT_RADIUS) brain.setState(runAway);
 
@@ -34,7 +34,7 @@ static void Ant::goHome() {
     //velocity = new Vector3D(Game.instance.home.x - position.x, Game.instance.home.y - position.y);
 
     //if (distance(Game.instance.home, this) <= 10) 
-brain->setState(findLeaf);
+brain.setState(findLeaf);
 cout<<"goHome"<<endl;
 }
 
