@@ -17,12 +17,12 @@ ant.update();
 	//std::cout<<"ant x= "<<ant->position->x<<" ant y= "<<ant->position->y<<std::endl;
 
 std::cout<<ant.position.distance(ant.leaf)<<std::endl;
-for(int i=10;i>0;i--){
+for(int i=ant.position.distance(ant.leaf);i>0;i--){
 ant.position+=ant.leaf/i;
 
 std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 
-if((ant.position.distance(ant.leaf)-1)<1) break;
+if((ant.position.distance(ant.leaf))<1) break;
 //std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 }
 /*
