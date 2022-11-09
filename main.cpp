@@ -3,12 +3,8 @@
 //Home on (0,0)
 //Leaf on (rand, rand)
 
-double func(double x, double y)
-{
-        return y-x; }
-
 int main(){
-Ant* ant=new Ant(1,1);
+Ant* ant=new Ant(0,0);
 std::cout<<"Ant x = "<<ant->position->x<<std::endl;
 std::cout<<"Ant y = "<<ant->position->y<<std::endl;
 std::cout<<"leaf x = "<<ant->leaf->x<<std::endl;
@@ -16,15 +12,19 @@ std::cout<<"leaf y = "<<ant->leaf->y<<std::endl;
 ant->update();
 ant->update();
 ant->update();
-float h = (ant->leaf->y)/(ant->leaf->x);
-printf("%f\n",h);
-for (int i=1;i<ant->leaf->x;i++){
-	ant->position->y+=h*func(i,ant->leaf->y);
-        ant->position->x+=h;
+	ant->position->y+=ant->leaf->y;
+        ant->position->x+=ant->leaf->x;
 	std::cout<<"ant x= "<<ant->position->x<<" ant y= "<<ant->position->y<<std::endl;
-	//ant->position->y+=h*func(i,ant->leaf->y);
-	//ant->position->x+=i;
-}
+
+vector3d a=vector3d(2,5);
+    vector3d b=vector3d(3,7);
+    vector3d c=a+b;
+    c.disp();
+    f ff=c.distance(a);
+    cout<<ff<<endl;
+    //provide any operation.
+
+
 
 return 0;
 }
