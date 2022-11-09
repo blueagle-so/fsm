@@ -17,9 +17,10 @@ int main(int argc, char** argv)
 
     for (i = 0; i < n; i++)
     {
+	printf("x=%i, y=%i\n",x,y);
         y += h * func(x, y); // вычисление yi
         x += h;
-	printf("x=%i, y=%i\n",x,y);
+	//printf("x=%i, y=%i\n",x,y);
     }
 
     return 0;

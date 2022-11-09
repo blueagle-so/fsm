@@ -10,7 +10,7 @@ FSM * Ant::brain;
     //    brain->setState(findLeaf);
 //}
 
-Point::Point(int posX, int posY){
+Point::Point(float posX, float posY){
 x=posX;
 y=posY;
 }

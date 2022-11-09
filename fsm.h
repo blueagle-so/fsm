@@ -21,10 +21,10 @@ class FSM{
 };
 class Point{
 	public:
-	int x;
-	int y;
+	float x;
+	float y;
 	Point(){};
-	Point(int,int);
+	Point(float, float);
 	//Point(int posX, int posY){
 	//x=posX;
 	//y=posY;
@@ -36,7 +36,7 @@ class Ant{
 	Point *velocity;
 	Point *leaf;
 	static FSM* brain;
-	Ant(int posX, int posY)
+	Ant(float posX, float posY)
 	{
 	position=new Point(posX, posY);
 	velocity=new Point(-1,-1);
