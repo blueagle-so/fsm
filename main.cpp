@@ -3,6 +3,9 @@
 //Home on (0,0)
 //Leaf on (rand, rand)
 
+double func(double x, double y)
+{
+        return x-y; }
 
 int main(){
 Ant* ant=new Ant(0,0);
@@ -13,5 +16,13 @@ std::cout<<"leaf y = "<<ant->leaf->y<<std::endl;
 ant->update();
 ant->update();
 ant->update();
+int h = 10/ant->leaf->x;
+
+for (int i=0;i<ant->leaf->x;i++){
+	std::cout<<"ant x= "<<ant->position->x<<" ant y= "<<ant->position->y<<std::endl;
+	ant->position->y+=h*func(ant->position->x,ant->position->y);
+	ant->position->x+=h;
+}
+
 return 0;
 }
