@@ -6,6 +6,8 @@
 
 int main(){
 Ant* ant=new Ant(0,0);
+std::cout<<"Ant x = "<<ant->position->x<<std::endl;
+std::cout<<"Ant y = "<<ant->position->y<<std::endl;
 std::cout<<"leaf x = "<<ant->leaf->x<<std::endl;
 std::cout<<"leaf y = "<<ant->leaf->y<<std::endl;
 ant->update();
