@@ -125,14 +125,14 @@ main(int argc, char* argv[])
   XSync(display, False);
 
   /* draw one pixel near each corner of the window */
-  XDrawPoint(display, win, gc, 100, 100);
+  XDrawPoint(display, win, gc, 51, 51);
   //XDrawPoint(display, win, gc, 50, height-5);
   //XDrawPoint(display, win, gc, width-5, 5);
   //XDrawPoint(display, win, gc, width-5, height-5);
 
   /* draw two intersecting lines, one horizontal and one vertical, */
   /* which intersect at point "50,100".                            */
-  XDrawLine(display, win, gc, 50, 0, 50, 200);
+  //XDrawLine(display, win, gc, 50, 50, 50, 50);
   //XDrawLine(display, win, gc, 0, 100, 200, 100);
 
   /* now use the XDrawArc() function to draw a circle whose diameter */
