@@ -125,19 +125,20 @@ main(int argc, char* argv[])
   XSync(display, False);
 
   /* draw one pixel near each corner of the window */
-  XDrawPoint(display, win, gc, 5, 5);
-  XDrawPoint(display, win, gc, 5, height-5);
-  XDrawPoint(display, win, gc, width-5, 5);
-  XDrawPoint(display, win, gc, width-5, height-5);
+  XDrawPoint(display, win, gc, 100, 100);
+  //XDrawPoint(display, win, gc, 50, height-5);
+  //XDrawPoint(display, win, gc, width-5, 5);
+  //XDrawPoint(display, win, gc, width-5, height-5);
 
   /* draw two intersecting lines, one horizontal and one vertical, */
   /* which intersect at point "50,100".                            */
   XDrawLine(display, win, gc, 50, 0, 50, 200);
-  XDrawLine(display, win, gc, 0, 100, 200, 100);
+  //XDrawLine(display, win, gc, 0, 100, 200, 100);
 
   /* now use the XDrawArc() function to draw a circle whose diameter */
   /* is 30 pixels, and whose center is at location '50,100'.         */
-  XDrawArc(display, win, gc, 50-(30/2), 100-(30/2), 30, 30, 0, 360*64);
+  
+  /*XDrawArc(display, win, gc, 50-(30/2), 100-(30/2), 30, 30, 0, 360*64);
 
   {
     XPoint points[] = {
@@ -147,27 +148,27 @@ main(int argc, char* argv[])
       {0, 0}
     };
     int npoints = sizeof(points)/sizeof(XPoint);
-
+*/
     /* draw a small triangle at the top-left corner of the window. */
     /* the triangle is made of a set of consecutive lines, whose   */
     /* end-point pixels are specified in the 'points' array.       */
-    XDrawLines(display, win, gc, points, npoints, CoordModeOrigin);
-  }
+  //  XDrawLines(display, win, gc, points, npoints, CoordModeOrigin);
+  //}
 
   /* draw a rectangle whose top-left corner is at '120,150', its width is */
   /* 50 pixels, and height is 60 pixels.                                  */
-  XDrawRectangle(display, win, gc, 120, 150, 50, 60);
+  //XDrawRectangle(display, win, gc, 120, 150, 50, 60);
 
   /* draw a filled rectangle of the same size as above, to the left of the */
   /* previous rectangle.                                                   */
-  XFillRectangle(display, win, gc, 60, 150, 50, 60);
+  //XFillRectangle(display, win, gc, 60, 150, 50, 60);
 
   /* flush all pending requests to the X server. */
   XFlush(display);
   XSync(display, False);
 
   /* make a delay for a short period. */
-  sleep(4);
+  sleep(10);
 
   /* close the connection to the X server. */
   XCloseDisplay(display);
