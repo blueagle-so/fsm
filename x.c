@@ -9,7 +9,7 @@ int screen;
 Window win;
 GC gc;
 unsigned long white, black;
-
+Drawable d;
 
 
 
@@ -21,12 +21,22 @@ void draw();
 int main(){
 init();
 XEvent event;
+KeySym key;
+char *text[255];
 while(1){
 
 	XNextEvent(dis, &event);
-	if(event.type==Expose && event.xexpose.count==0){draw();}
+	if(event.type==Expose && event.xexpose.count==0)draw();
+	if(event.type==KeyPress && XLookupString(&event.xkey, text, 255, &key, 0)==1){
+		if(text[0]='q')close(0);
+		printf("You presed %c key\n", text[0]);}
+	if(event.type==ButtonPress){
+		XSetForeground(dis, gc, white);
+		XDrawPoint(dis, win ,gc, event.xbutton.x, event.xbutton.y);
+		
+	}
 
-
+	
 
 }
 return 0;
@@ -52,10 +62,8 @@ XClearWindow(dis, win);
 }
 
 void cloze(){
-
-
-
-
-
-
+XFreeGC(dis, gc);
+XDestroyWindow(dis, win);
+XCloseDisplay(dis);
+exit(0);
 }
