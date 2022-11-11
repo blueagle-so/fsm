@@ -28,7 +28,7 @@ while(1){
 	XNextEvent(dis, &event);
 	if(event.type==Expose && event.xexpose.count==0)draw();
 	if(event.type==KeyPress && XLookupString(&event.xkey, text, 255, &key, 0)==1){
-		if(text[0]='q')close(0);
+		if(text[0]=='q')close(0);
 		printf("You presed %c key\n", text[0]);}
 	if(event.type==ButtonPress){
 		XSetForeground(dis, gc, white);
