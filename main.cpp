@@ -23,7 +23,7 @@ ant.position+=ant.leaf/i;
 std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 
 if((ant.position.distance(ant.leaf))<1) break;
-//std::cout<<ant.position.distance(ant.leaf)<<std::endl;
+///std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 }
 /*
 vector3d a=vector3d(2,5);
