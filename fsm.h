@@ -8,6 +8,8 @@
 #include<assert.h>
 using namespace std;
 typedef float f;
+class Ant;
+//void Ant::findLeaf(Ant& obj);
 class vector3d
 {
 public:
@@ -47,7 +49,7 @@ public:
     f show_Z(); //return z
     void disp();    //display value of vectors
 };
-using Func = void (*)();
+using Func = void(*)(Ant& obj);
 using namespace std;
 class FSM{
 	private:
@@ -57,9 +59,9 @@ class FSM{
 	void setState(Func state){
 	activeState=state;
 	}
-	void update(){
+	void update(Ant& obj){
 	if(activeState!=NULL)
-	activeState();
+	activeState(obj);
 	}
 };
 class Point{
@@ -78,26 +80,27 @@ class Ant{
 	vector3d position;
 	vector3d velocity;
 	vector3d leaf;
-	static FSM brain;
-	Ant(f posX, f posY)
+	FSM* brain;
+	Ant(f,f);
+	/*Ant(f posX, f posY)
 	{
 	position=vector3d(posX, posY);
 	velocity=vector3d(-1,-1);
 	std::srand(std::time(0));
 	leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
-	brain =FSM();
-	brain.setState(findLeaf);
-	}
-	static void findLeaf();
-	static void goHome();
-	static void runAway();
-	void update(){
-        brain.update();
+	brain = new FSM();
+	brain->setState(findLeaf);
+	}*/
+	friend void findLeaf(Ant& obj);
+	friend void goHome(Ant& obj);
+	friend void runAway(Ant& obj);
+	void update(Ant& obj){
+        brain->update(obj);
         //moveBasedOnVelocity();
 	}
 
 };
-
+/*
 class StackFSM {
     stack<Func> _stack;
     Func currentStateFunction;
@@ -149,4 +152,4 @@ class _Ant {
    static void runAway();
 };
 
-
+*/

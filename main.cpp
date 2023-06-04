@@ -2,15 +2,15 @@
 #include "fsm.h"
 //Home on (0,0)
 //Leaf on (rand, rand)
-
 int main(){
-Ant ant=Ant(0,0);
+Ant ant= Ant(0, 0);
 std::cout<<"Ant x = "<<ant.position.x<<std::endl;
 std::cout<<"Ant y = "<<ant.position.y<<std::endl;
 std::cout<<"leaf x = "<<ant.leaf.x<<std::endl;
 std::cout<<"leaf y = "<<ant.leaf.y<<std::endl;
 for(;;){
-ant.update();
+ant.update(ant);
+findLeaf(ant);
 for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;
 }
 //ant.update();
