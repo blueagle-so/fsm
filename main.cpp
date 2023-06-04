@@ -9,13 +9,16 @@ std::cout<<"Ant x = "<<ant.position.x<<std::endl;
 std::cout<<"Ant y = "<<ant.position.y<<std::endl;
 std::cout<<"leaf x = "<<ant.leaf.x<<std::endl;
 std::cout<<"leaf y = "<<ant.leaf.y<<std::endl;
+for(;;){
 ant.update();
-ant.update();
-ant.update();
+for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;
+}
+//ant.update();
+//ant.update();
 	//ant.position+=ant.leaf/10;
         //ant->position->x+=ant->leaf->x;
 	//std::cout<<"ant x= "<<ant->position->x<<" ant y= "<<ant->position->y<<std::endl;
-
+/*
 std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 for(int i=ant.position.distance(ant.leaf);i>0;i--){
 ant.position+=ant.leaf/i;
@@ -24,7 +27,7 @@ std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 
 if((ant.position.distance(ant.leaf))<1) break;
 ///std::cout<<ant.position.distance(ant.leaf)<<std::endl;
-}
+}*/
 /*
 vector3d a=vector3d(2,5);
     vector3d b=vector3d(3,7);

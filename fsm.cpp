@@ -17,7 +17,18 @@ y=posY;
 
 
 static void Ant::findLeaf(){
-    //velocity = new Vector3D(Game.instance.leaf.x - position.x, Game.instance.leaf.y - position.y);
+/*
+for(int i=ant.position.distance(ant.leaf);i>0;i--){
+ant.position+=ant.leaf/i;
+
+std::cout<<ant.position.distance(ant.leaf)<<std::endl;
+
+if((ant.position.distance(ant.leaf))<1) break;
+///std::cout<<ant.position.distance(ant.leaf)<<std::endl;
+}
+*/
+
+	//velocity = new Vector3D(Game.instance.leaf.x - position.x, Game.instance.leaf.y - position.y);
 
     //if (distance(Game.instance.leaf, this) <= 10)  
 brain.setState(goHome);
