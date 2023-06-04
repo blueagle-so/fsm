@@ -3,15 +3,15 @@
 //Home on (0,0)
 //Leaf on (rand, rand)
 int main(){
+vector3d home(0,0,0);
 Ant ant= Ant(0, 0);
-std::cout<<"Ant x = "<<ant.position.x<<std::endl;
-std::cout<<"Ant y = "<<ant.position.y<<std::endl;
-std::cout<<"leaf x = "<<ant.leaf.x<<std::endl;
-std::cout<<"leaf y = "<<ant.leaf.y<<std::endl;
+ant.position.disp();//<<std::endl;
+ant.leaf.disp();//<<std::endl;
 for(;;){
 ant.update(ant);
-ant.position.x=0;
-ant.position.y=0;
+ant.position=home;
+ant.position.disp();
+ant.leaf.disp();//<<std::endl;
 findLeaf(ant);
 ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
 for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;

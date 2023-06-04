@@ -248,3 +248,7 @@ void vector3d::disp()
 {
     cout<<x<<" "<<y<<" "<<z<<endl;
 }
+
+
+
+
