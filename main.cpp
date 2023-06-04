@@ -10,7 +10,10 @@ std::cout<<"leaf x = "<<ant.leaf.x<<std::endl;
 std::cout<<"leaf y = "<<ant.leaf.y<<std::endl;
 for(;;){
 ant.update(ant);
+ant.position.x=0;
+ant.position.y=0;
 findLeaf(ant);
+ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
 for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;
 }
 //ant.update();
