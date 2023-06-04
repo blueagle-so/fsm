@@ -5,15 +5,15 @@
 int main(){
 vector3d home(0,0,0);
 Ant ant= Ant(0, 0);
-ant.position.disp();//<<std::endl;
-ant.leaf.disp();//<<std::endl;
+ant.position.disp();//fsm.cpp:247
+ant.leaf.disp();//fsm.cpp:247
 for(;;){
 ant.update(ant);
-ant.position=home;
-ant.position.disp();
-ant.leaf.disp();//<<std::endl;
-findLeaf(ant);
+ant.position=home;//fsm.cpp:186
+ant.position.disp();//fsm.cpp:247
 ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
+ant.leaf.disp();//...
+findLeaf(ant);
 for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;
 }
 //ant.update();
