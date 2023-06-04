@@ -82,6 +82,7 @@ class Ant{
 	vector3d leaf;
 	FSM* brain;
 	Ant(f,f);
+	Ant()=default;
 	/*Ant(f posX, f posY)
 	{
 	position=vector3d(posX, posY);
@@ -95,7 +96,7 @@ class Ant{
 	friend void goHome(Ant& obj);
 	friend void runAway(Ant& obj);
 	void update(Ant& obj){
-        brain->update(obj);
+	brain->update(obj);
         //moveBasedOnVelocity();
 	}
 

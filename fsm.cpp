@@ -21,6 +21,7 @@ void findLeaf(Ant& obj){
 
 for(int i=obj.position.distance(obj.leaf);i>0;i--){
 obj.position+=obj.leaf/i;
+for(int k = 0;k<50000;k++)for(int j = 0;j<5000;j++);;
 
 std::cout<<obj.position.distance(obj.leaf)<<std::endl;
 
