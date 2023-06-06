@@ -2,18 +2,23 @@
 #include <iostream>
 using namespace std;
 void goHome(Ant& obj);
-//FSM Ant::brain;
 
-//Ant::Ant(int posX, int posY){
-	//position=position(posX, posY);
-        //velocity=velocity(-1,-1);
-  //      brain = new FSM();
-    //    brain->setState(findLeaf);
-//}
-
-Point::Point(float posX, float posY){
+point::point(float posX, float posY){
 x=posX;
 y=posY;
+}
+point::point(const point &p){
+x=p.x;
+y=p.y;
+}
+point &point::operator=(const point &p){
+x=p.x;
+y=p.y;
+return *this;
+}
+f point::distance(const point &p){
+cout<<"destance to leaf(point)"<<endl;
+return 0;
 }
 
 
@@ -24,7 +29,7 @@ obj.position+=obj.leaf/i;
 for(int k = 0;k<50000;k++)for(int j = 0;j<5000;j++);;
 
 std::cout<<obj.position.distance(obj.leaf)<<std::endl;
-
+std::cout<<obj._position.distance(obj._leaf)<<std::endl;
 if((obj.position.distance(obj.leaf))<1) break;
 ///std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 }
@@ -48,6 +53,7 @@ void goHome(Ant& obj) {
     //if (distance(Game.instance.home, this) <= 10) 
 obj.brain->setState(findLeaf);
 cout<<"goHome"<<endl;
+for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;
 }
 
 
@@ -57,12 +63,12 @@ void runAway(){
    // if (distance(Game.mouse, this) > MOUSE_THREAT_RADIUS) brain.setState(findLeaf);
 }
 
-Ant::Ant(f posX, f posY)
+Ant::Ant(vector3d& vec)
         {
-        position=vector3d(posX, posY);
+        position=vec;
         velocity=vector3d(-1,-1);
-        std::srand(std::time(0));
-        leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
+	//std::srand(std::time(0));
+        //leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
         brain = new FSM();
         brain->setState(findLeaf);
         }

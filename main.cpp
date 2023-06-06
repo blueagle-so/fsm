@@ -3,44 +3,23 @@
 //Home on (0,0)
 //Leaf on (rand, rand)
 int main(){
+point _home(0, 0);
 vector3d home(0,0,0);
-Ant ant= Ant(0, 0);
-ant.position.disp();//fsm.cpp:247
-ant.leaf.disp();//fsm.cpp:247
+Ant ant = Ant(home);
 for(;;){
-ant.update(ant);
-ant.position=home;//fsm.cpp:186
-ant.position.disp();//fsm.cpp:247
-ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
-ant.leaf.disp();//...
-findLeaf(ant);
-for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;
+	ant.update(ant);
+	ant.position=home;//fsm.cpp:186
+	ant._position=_home;
+	cout<<"at home ";
+	ant.position.disp();//fsm.cpp:247
+	cout<<endl;
+	std::srand(std::time(0));
+	ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
+	cout<<"leaf coord ";
+	ant.leaf.disp();
+	cout<<endl;
+	findLeaf(ant);
+	//for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;
 }
-//ant.update();
-//ant.update();
-	//ant.position+=ant.leaf/10;
-        //ant->position->x+=ant->leaf->x;
-	//std::cout<<"ant x= "<<ant->position->x<<" ant y= "<<ant->position->y<<std::endl;
-/*
-std::cout<<ant.position.distance(ant.leaf)<<std::endl;
-for(int i=ant.position.distance(ant.leaf);i>0;i--){
-ant.position+=ant.leaf/i;
-
-std::cout<<ant.position.distance(ant.leaf)<<std::endl;
-
-if((ant.position.distance(ant.leaf))<1) break;
-///std::cout<<ant.position.distance(ant.leaf)<<std::endl;
-}*/
-/*
-vector3d a=vector3d(2,5);
-    vector3d b=vector3d(3,7);
-    vector3d c=a+b;
-    c.disp();
-   f ff=c.distance(a);
-    cout<<ff<<endl;
-    //provide any operation.
-
-*/
-
 return 0;
 }

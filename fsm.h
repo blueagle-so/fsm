@@ -9,7 +9,6 @@
 using namespace std;
 typedef float f;
 class Ant;
-//void Ant::findLeaf(Ant& obj);
 class vector3d
 {
 public:
@@ -49,14 +48,14 @@ public:
     f show_Z(); //return z
     void disp();    //display value of vectors
 };
-using Func = void(*)(Ant& obj);
+using AbstractState = void(*)(Ant& obj);
 using namespace std;
 class FSM{
 	private:
-	Func activeState;
+	AbstractState activeState;
 	public:
 	FSM(){}
-	void setState(Func state){
+	void setState(AbstractState state){
 	activeState=state;
 	}
 	void update(Ant& obj){
@@ -64,34 +63,25 @@ class FSM{
 	activeState(obj);
 	}
 };
-class Point{
-	public:
+class point{
 	float x;
 	float y;
-	Point(){};
-	Point(float, float);
-	//Point(int posX, int posY){
-	//x=posX;
-	//y=posY;
-	//}
+	public:
+	point(){};
+	point(float, float);
+	point(const point &p);
+	point &operator=(const point &p);
+	f distance(const point &p);
 };
 class Ant{
 	public:
+	point _position, _leaf, _velocity;
 	vector3d position;
 	vector3d velocity;
 	vector3d leaf;
-	FSM* brain;
-	Ant(f,f);
+	//FSM* brain;
+	Ant(vector3d&);
 	Ant()=default;
-	/*Ant(f posX, f posY)
-	{
-	position=vector3d(posX, posY);
-	velocity=vector3d(-1,-1);
-	std::srand(std::time(0));
-	leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
-	brain = new FSM();
-	brain->setState(findLeaf);
-	}*/
 	friend void findLeaf(Ant& obj);
 	friend void goHome(Ant& obj);
 	friend void runAway(Ant& obj);
@@ -99,6 +89,9 @@ class Ant{
 	brain->update(obj);
         //moveBasedOnVelocity();
 	}
+	private:
+        FSM* brain;
+
 
 };
 /*

@@ -1,0 +1,12 @@
+programmer@squareroot:~/fsm$make
+g++ main.cpp fsm.cpp -o ant -fpermissive -g;./ant
+findLeaf
+at home 0 0 0
+
+leaf coord 1 1 0
+
+0
+findLeaf
+goHome
+^Cmake: *** [Makefile:2: all] Interrupt
+
