@@ -16,21 +16,63 @@ x=p.x;
 y=p.y;
 return *this;
 }
+point point::operator-(const point &p){
+return point(x-p.x, y-p.y);
+}
+point &point::operator+=(const point &p){
+x+=p.x;
+y+=p.y;
+return *this;
+}
+
 f point::distance(const point &p){
-cout<<"destance to leaf(point)"<<endl;
-return 0;
+	point dist=*this-p;
+	return dist.magnitude();
+}
+f point::square(){
+
+return x*x+y*y;
+
+}
+
+f point::magnitude(){
+
+return sqrt(square());
+}
+
+void point::disp(){
+cout<<x<<" "<<y<<endl;
+}
+
+point point::operator/(f value){
+
+return point(x/value, y/value);
+
+}
+
+point &point::operator/=(f value){
+x/=value;
+y/=value;
+return *this;
+}
+point point::normalization(){
+*this/=magnitude();
+return *this;
 }
 
 
 void findLeaf(Ant& obj){
 
-for(int i=obj.position.distance(obj.leaf);i>0;i--){
-obj.position+=obj.leaf/i;
+//for(int i=obj._position.distance(obj._leaf);i>0;i--){
+obj._position=point(1,1);
+while(1){	
+obj._position+=(obj._leaf-obj._position).normalization();
+
 for(int k = 0;k<50000;k++)for(int j = 0;j<5000;j++);;
 
-std::cout<<obj.position.distance(obj.leaf)<<std::endl;
 std::cout<<obj._position.distance(obj._leaf)<<std::endl;
-if((obj.position.distance(obj.leaf))<1) break;
+//std::cout<<obj._position.distance(obj._leaf)<<std::endl;
+if((obj._position.distance(obj._leaf))<1) break;
 ///std::cout<<ant.position.distance(ant.leaf)<<std::endl;
 }
 
@@ -63,10 +105,10 @@ void runAway(){
    // if (distance(Game.mouse, this) > MOUSE_THREAT_RADIUS) brain.setState(findLeaf);
 }
 
-Ant::Ant(vector3d& vec)
+Ant::Ant(point& vec)
         {
-        position=vec;
-        velocity=vector3d(-1,-1);
+        _position=vec;
+        _velocity=point(-1,-1);
 	//std::srand(std::time(0));
         //leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
         brain = new FSM();

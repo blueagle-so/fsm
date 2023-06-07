@@ -71,7 +71,16 @@ class point{
 	point(float, float);
 	point(const point &p);
 	point &operator=(const point &p);
+	point operator-(const point &p); 
+	point &operator+=(const point &p);
+	point operator/(f value);
+        point &operator/=(f value);
+	point normalization();
 	f distance(const point &p);
+	f square();
+	f magnitude();
+	void disp();
+	
 };
 class Ant{
 	public:
@@ -80,7 +89,7 @@ class Ant{
 	vector3d velocity;
 	vector3d leaf;
 	//FSM* brain;
-	Ant(vector3d&);
+	Ant(point&);
 	Ant()=default;
 	friend void findLeaf(Ant& obj);
 	friend void goHome(Ant& obj);
