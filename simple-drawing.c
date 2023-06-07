@@ -125,11 +125,21 @@ main(int argc, char* argv[])
   XSync(display, False);
 
   /* draw one pixel near each corner of the window */
-  for (int i=50;i<100;i++){
-	XDrawPoint(display, win, gc, i, 50);
-	for(int j=0;j<50000;j++)for(int k = 0;k<1000;k++);;
+  int x = 50;
+int y = 50;
 
-  }
+while (y < height) {
+    x = 0;
+
+    while (x < width) {
+        //XDrawPoint(display, win, gc, x, y);
+        XDrawLine(display, win, gc, 50, 50, x, y);
+	x+=50;for(int i = 0;i<50000;i++)for(int j=0;j<200;j++);;
+    }
+    y+=50;
+}
+
+
   //XDrawPoint(display, win, gc, 50, height-5);
   //XDrawPoint(display, win, gc, width-5, 5);
   //XDrawPoint(display, win, gc, width-5, height-5);
