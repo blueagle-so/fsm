@@ -11,6 +11,8 @@ Ant ant = Ant(_home);
         //ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
         ant._leaf=point((std::rand() % 10 +1), (std::rand() % 10 +1));
         //ant.brain->setState(findLeaf);
+        //ant.brain->setState(findLeaf);
+        ant._position=point(1,0);
 
 
 for(;;){

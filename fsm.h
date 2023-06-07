@@ -76,6 +76,8 @@ class point{
 	point operator/(f value);
         point &operator/=(f value);
 	point normalization();
+	point &operator-=(const point &p);
+	point operator+(const point &p);
 	f distance(const point &p);
 	f square();
 	f magnitude();

@@ -19,11 +19,23 @@ return *this;
 point point::operator-(const point &p){
 return point(x-p.x, y-p.y);
 }
+point point::operator+(const point &p){
+return point(x+p.x, y+p.y);
+}
+
 point &point::operator+=(const point &p){
 x+=p.x;
 y+=p.y;
 return *this;
 }
+
+point &point::operator-=(const point &p){
+x-=p.x;
+y-=p.y;
+return *this;
+}
+
+
 
 f point::distance(const point &p){
 	point dist=*this-p;
@@ -62,7 +74,7 @@ return *this;
 
 
 void findLeaf(Ant& obj){
-cout<<"findLeaf"<<endl;
+//cout<<"findLeaf"<<endl;
 ///obj._position.disp();
 
 //velocity = normalize(target - position) * max_velocity
@@ -72,7 +84,7 @@ obj._position+=(obj._leaf-obj._position).normalization();
 for(int k = 0;k<50000;k++)for(int j = 0;j<5000;j++);;
 
 std::cout<<obj._position.distance(obj._leaf)<<std::endl;
-if((obj._position.distance(obj._leaf))<1) obj.brain->setState(goHome);
+if((obj._position.distance(obj._leaf))<1){obj._position=point(1,0);cout<<"goHome"<<endl;obj.brain->setState(goHome);}
 
     //if (distance(Game.mouse, this) <= MOUSE_THREAT_RADIUS) brain.setState(runAway);
 
@@ -84,17 +96,22 @@ if((obj._position.distance(obj._leaf))<1) obj.brain->setState(goHome);
 
 void goHome(Ant& obj) {
     //velocity = new Vector3D(Game.instance.home.x - position.x, Game.instance.home.y - position.y);
- 	std::srand(std::time(0));
+ 	//std::srand(std::time(0));
         //ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
-        obj._leaf=point((std::rand() % 10 +1), (std::rand() % 10 +1));
+        //obj._leaf=point((std::rand() % 10 +1), (std::rand() % 10 +1));
         //ant.brain->setState(findLeaf);
-	obj._position=point(1,0);
+	//obj._position=point(1,0);
+	
+	std::cout<<obj._leaf.distance(obj._position)<<std::endl;
+	obj._position-=(obj._position-obj._leaf).normalization();
+	if((obj._leaf.distance(obj._position))<1){std::srand(std::time(0));obj._leaf=point((std::rand() % 10 +1), (std::rand() % 10 +1));
+cout<<"findLeaf"<<endl; obj.brain->setState(findLeaf);};
 
 
     //if (distance(Game.instance.home, this) <= 10) 
-obj.brain->setState(findLeaf);
-cout<<"goHome"<<endl;
-for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;
+//obj.brain->setState(findLeaf);
+//cout<<"goHome"<<endl;
+for(int i = 0;i<50000;i++)for(int j = 0;j<5000;j++);;
 }
 
 
