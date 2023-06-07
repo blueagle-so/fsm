@@ -62,22 +62,21 @@ return *this;
 
 
 void findLeaf(Ant& obj){
+cout<<"findLeaf"<<endl;
+///obj._position.disp();
+
 //velocity = normalize(target - position) * max_velocity
-obj._position=point(1,1);
-while(1){	
+//obj._position=point(1,1);
 obj._position+=(obj._leaf-obj._position).normalization();
 
 for(int k = 0;k<50000;k++)for(int j = 0;j<5000;j++);;
 
 std::cout<<obj._position.distance(obj._leaf)<<std::endl;
-if((obj._position.distance(obj._leaf))<1) break;
-}
-
-obj.brain->setState(goHome);
+if((obj._position.distance(obj._leaf))<1) obj.brain->setState(goHome);
 
     //if (distance(Game.mouse, this) <= MOUSE_THREAT_RADIUS) brain.setState(runAway);
 
-cout<<"findLeaf"<<endl;
+//cout<<"findLeaf"<<endl;
 
 
 }
@@ -85,6 +84,12 @@ cout<<"findLeaf"<<endl;
 
 void goHome(Ant& obj) {
     //velocity = new Vector3D(Game.instance.home.x - position.x, Game.instance.home.y - position.y);
+ 	std::srand(std::time(0));
+        //ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
+        obj._leaf=point((std::rand() % 10 +1), (std::rand() % 10 +1));
+        //ant.brain->setState(findLeaf);
+	obj._position=point(1,0);
+
 
     //if (distance(Game.instance.home, this) <= 10) 
 obj.brain->setState(findLeaf);

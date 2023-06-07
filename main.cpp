@@ -3,25 +3,32 @@
 //Home on (0,0)
 //Leaf on (rand, rand)
 int main(){
-point _home(0, 0);
-vector3d home(0,0,0);
+point _home(1, 0);
+//vector3d home(0,0,0);
 Ant ant = Ant(_home);
+
+        std::srand(std::time(0));
+        //ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
+        ant._leaf=point((std::rand() % 10 +1), (std::rand() % 10 +1));
+        //ant.brain->setState(findLeaf);
+
+
 for(;;){
 	ant.update(ant);
 	//ant.position=home;//fsm.cpp:186
-	ant._position=_home;
-	cout<<"at home ";
+	//ant._position=_home;
+	//cout<<"at home ";
 	//ant.position.disp();//fsm.cpp:247
-	ant._position.disp();
-	cout<<endl;
-	std::srand(std::time(0));
+	//ant._position.disp();
+	//cout<<endl;
+	//std::srand(std::time(0));
 	//ant.leaf=vector3d((std::rand() % 10 +1), (std::rand() % 10 +1));
-        ant._leaf=point((std::rand() % 10 +1), (std::rand() % 10 +1));
-	cout<<"leaf coord ";
+        //ant._leaf=point((std::rand() % 10 +1), (std::rand() % 10 +1));
+	//cout<<"leaf coord ";
 	//ant.leaf.disp();
-	ant._leaf.disp();
-	cout<<endl;
-	findLeaf(ant);
+	//ant._leaf.disp();
+	//cout<<endl;
+	//findLeaf(ant);
 	//for(int i = 0;i<50000;i++)for(int j = 0;j<50000;j++);;
 }
 return 0;
