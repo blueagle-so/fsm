@@ -134,6 +134,10 @@ while (y < height) {
     while (x < width) {
         //XDrawPoint(display, win, gc, x, y);
         XDrawLine(display, win, gc, 50, 50, x, y);
+	XFlush(display);
+  XSync(display, False);
+
+
 	x+=50;for(int i = 0;i<50000;i++)for(int j=0;j<200;j++);;
     }
     y+=50;
