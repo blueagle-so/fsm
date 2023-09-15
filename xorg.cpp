@@ -84,7 +84,7 @@ create_gc(Display* display, Window win, int reverse_video)
 }
 
 void
-main_(int argc, char* argv[])
+main_()
 {
   Display* display;		/* pointer to X Display structure.           */
   int screen_num;		/* number of screen to place the window on.  */
@@ -99,8 +99,6 @@ main_(int argc, char* argv[])
   /* open connection with the X server. */
   display = XOpenDisplay(display_name);
   if (display == NULL) {
-    fprintf(stderr, "%s: cannot connect to X server '%s'\n",
-            argv[0], display_name);
     exit(1);
   }
 
@@ -118,7 +116,7 @@ main_(int argc, char* argv[])
   /* root window. Use the screen's white color as the background */
   /* color of the window. Place the new window's top-left corner */
   /* at the given 'x,y' coordinates.                             */
-  win = create_simple_window(display, width, height, 0, 0);
+  win = create_simple_window(display, width, height, 100, 100);
 
   /* allocate a new GC (graphics context) for drawing in the window. */
   gc = create_gc(display, win, 0);
@@ -128,7 +126,7 @@ main_(int argc, char* argv[])
   int x = 50;
 int y = 50;
 
-while (y < height) {
+//while (y < height) {
     x = 0;
 
     while (x < width) {
@@ -141,7 +139,7 @@ while (y < height) {
 	x+=1;for(int i = 0;i<50000;i++)for(int j=0;j<200;j++);;
     }
     y+=1;
-}
+//}
 
 
   //XDrawPoint(display, win, gc, 50, height-5);
@@ -186,7 +184,7 @@ while (y < height) {
   XSync(display, False);
 
   /* make a delay for a short period. */
-  sleep(10);
+  //sleep(10);
 
   /* close the connection to the X server. */
   XCloseDisplay(display);

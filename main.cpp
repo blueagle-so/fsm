@@ -2,6 +2,7 @@
 #include "fsm.h"
 //Home on (0,0)
 //Leaf on (rand, rand)
+void main_();
 int main(){
 point _home(1, 0);
 //vector3d home(0,0,0);
@@ -17,6 +18,7 @@ Ant ant = Ant(_home);
 
 for(;;){
 	ant.update(ant);
+	main_();
 	//ant.position=home;//fsm.cpp:186
 	//ant._position=_home;
 	//cout<<"at home ";
