@@ -64,6 +64,7 @@ class FSM{
 	}
 };
 class point{
+	public:
 	float x;
 	float y;
 	public:
